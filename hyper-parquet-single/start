@@ -45,6 +45,8 @@ with HyperProcess(
         # External-table samples are not persisted, so every cold restart would
         # otherwise resample the wide Parquet table before executing the query.
         "external_sampling": "false",
+        "parquet_max_footer_size": "64m",
+        "request_manager_max_request_size": "16g",
     },
 ) as hyper:
     # Keep-alive: hold hits_parquet.hyper attached for the server lifetime so
